@@ -38,6 +38,9 @@ class ChatGPT:
     session_div_id = "chatgpt-wrapper-session-data"
 
     def __init__(self, headless: bool = True, browser="firefox", timeout=60):
+        print("init chatgpt wrapper....")
+        from gevent import monkey
+        monkey.patch_all()
         self.play = sync_playwright().start()
 
         try:
